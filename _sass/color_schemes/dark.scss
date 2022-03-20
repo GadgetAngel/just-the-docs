@@ -15,9 +15,13 @@ $search-background-color: $grey-dk-250;
 $table-background-color: $grey-dk-250;
 $feedback-color: darken($sidebar-color, 3%);
 
+
+//just-the-docs dark.scss file contents:
+$code-background-color: $grey-dk-250;
+
 //
 // The following highlight theme is more legible than that used for the light color scheme
 //
 
-@import "./vendor/pygments/css-github/pygments-tomorrow-night";
-$code-background-color: #1d1f21;
+//@import "./vendor/pygments/css-github/pygments-tomorrow-night";
+//$code-background-color: #1d1f21;

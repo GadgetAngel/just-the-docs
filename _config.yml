@@ -20,7 +20,8 @@ baseurl: "/just-the-docs" # the subpath of your site, e.g. /blog
 
 #####################
 # TO BE REMOVED:
-title: Just the Docs FORK GadgetAngel/just-the-docs@dark-light-mode, FORK from pdmosses/just-the-docs@combination-rec-nav branch
+# This github repo was originally FORKed from https://github.com/pdmosses/just-the-docs/tree/combination-rec-nav branch
+title: Just the Docs FORK GadgetAngel/just-the-docs@dark-light-mode
 url: "https://gadgetangel.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # This branch is to be temporarily published at https://gadgetangel.github.io/just-the-docs/
 #####################
@@ -101,12 +102,10 @@ footer_content: "Copyright &copy; 2017-2020 Patrick Marsceill. Distributed by an
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
 last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
 
-
-
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/GadgetAngel/just-the-docs/tree/dark-light-mode" # the github URL for your repo
+gh_edit_repository: "https://github.com/pmarsceill/just-the-docs" # the github URL for your repo
 gh_edit_branch: "master" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
@@ -134,11 +133,11 @@ toggle_page_url: nil               # default: nil (display on all pages)
 #     will persist across web site pages and browser refreshs of the page until you change the mode back. 
 #     So the manual button is a persistanct switch of mode. Again, Once you are taken to a link off the site the
 #     mode will depend on that external web site's setup.
- toggle_auto_mode: nil            # default: nil (manual toggle)
+toggle_auto_mode: true            # default: nil (manual toggle)
 
 # To set the button text for toggling and reverting:
- toggle_text_1: "-> Dark Mode" # default: "-> Dark Mode"
- toggle_text_2: "-> Light Mode" # default: "-> Light Mode"
+toggle_text_1: "-> Dark Mode" # default: "-> Dark Mode"
+toggle_text_2: "-> Light Mode" # default: "-> Light Mode"
 
 # Callouts
 # 
@@ -210,12 +209,12 @@ kramdown:
       line_numbers: false
 
 compress_html:
-  clippings: all
-  comments: all
-  endings: all
-  startings: []
-  blanklines: false
-  profile: false
+   clippings: all
+   comments: all
+   endings: all
+   startings: []
+   blanklines: false
+   profile: false
   # ignore:
   #   envs: all
 
@@ -225,67 +224,67 @@ compress_html:
 # COPY OF _config_tests.yml
 
 # Define Jekyll collections
-collections:
-  tests:
-    permalink: "/:collection/:path:output_ext"
-    output: true
-  test_collection_1:
-    permalink: "/:collection/:path:output_ext"
-    output: true
-  test_collection_2:
-    permalink: "/:collection/:path:output_ext"
-    output: true
-  test_collection_3:
-    permalink: "/:collection/:path:output_ext"
-    output: true
-  test_collection_4:
-    permalink: "/:collection/:path:output_ext"
-    output: true
-  test_collection_4:
-    permalink: "/:collection/:path:output_ext"
-    output: true
+# collections:
+#   tests:
+#     permalink: "/:collection/:path:output_ext"
+#     output: true
+#   test_collection_1:
+#     permalink: "/:collection/:path:output_ext"
+#     output: true
+#   test_collection_2:
+#     permalink: "/:collection/:path:output_ext"
+#     output: true
+#   test_collection_3:
+#     permalink: "/:collection/:path:output_ext"
+#     output: true
+#   test_collection_4:
+#     permalink: "/:collection/:path:output_ext"
+#     output: true
+#   test_collection_4:
+#     permalink: "/:collection/:path:output_ext"
+#     output: true
 
-just_the_docs:
-  collections:
-    tests:
-      name: Tests
-      nav_exclude: false
-      nav_fold: true
-      search_exclude: true
-    test_collection_1:
-      name: Test Collection 1
-      nav_exclude: false
-      nav_fold: true
-      search_exclude: true
-    test_collection_2:
-      name: Test Collection 2
-      nav_exclude: false
-      nav_fold: true
-      search_exclude: false
-    test_collection_3:
-      name: Test Collection 3
-      nav_exclude: false
-      nav_fold: false
-      search_exclude: true
-    test_collection_4:
-      name: Test Collection 4
-      nav_exclude: true
-      search_exclude: false
-    test_collection_5:
-      name: Test Collection 5
-      nav_exclude: true
-      search_exclude: true
+# just_the_docs:
+#   collections:
+#     tests:
+#       name: Tests
+#       nav_exclude: false
+#       nav_fold: true
+#       search_exclude: true
+#     test_collection_1:
+#       name: Test Collection 1
+#       nav_exclude: false
+#       nav_fold: true
+#       search_exclude: true
+#     test_collection_2:
+#       name: Test Collection 2
+#       nav_exclude: false
+#       nav_fold: true
+#       search_exclude: false
+#     test_collection_3:
+#       name: Test Collection 3
+#       nav_exclude: false
+#       nav_fold: false
+#       search_exclude: true
+#     test_collection_4:
+#       name: Test Collection 4
+#       nav_exclude: true
+#       search_exclude: false
+#     test_collection_5:
+#       name: Test Collection 5
+#       nav_exclude: true
+#       search_exclude: true
 
-defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-      type: "tests"
-    values:
-      layout: "default"
+# defaults:
+#   -
+#     scope:
+#       path: "" # an empty string here means all files in the project
+#       type: "tests"
+#     values:
+#       layout: "default"
 
-# callouts_opacity: 0.15
-# callouts_level: loud
+# # callouts_opacity: 0.15
+# # callouts_level: loud
 
 callouts:
   admonition:
@@ -325,4 +324,5 @@ callouts:
   warning:
     title: Warning
     color: red
-#####################
+# #####################
+# ###
