@@ -16,13 +16,13 @@
 # title: Just the Docs
 description: A Jekyll theme for documentation
 baseurl: "/just-the-docs" # the subpath of your site, e.g. /blog
-# url: "https://pmarsceill.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# url: "https://gadgetangel.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 #####################
 # TO BE REMOVED:
-title: Just the Docs FORK pdmosses/just-the-docs @combination-rec-nav 
-url: "https://pdmosses.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-# This branch is to be temporarily published at https://pdmosses.github.io/just-the-docs/
+title: Just the Docs FORK GadgetAngel/just-the-docs@dark-light-mode, FORK from pdmosses/just-the-docs@combination-rec-nav branch
+url: "https://gadgetangel.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# This branch is to be temporarily published at https://gadgetangel.github.io/just-the-docs/
 #####################
 
 permalink: pretty
@@ -64,10 +64,14 @@ heading_anchors: true
 # Aux links for the upper right navigation
 aux_links:
   "Just the Docs FORK on GitHub":
-    - "//github.com/pdmosses/just-the-docs/tree/combination-rec-nav"
+    - "https://github.com/GadgetAngel/just-the-docs/tree/dark-light-mode"
+  "Original FORKed Just the Docs Github":
+    - "https://github.com/pdmosses/just-the-docs/tree/combination-rec-nav" 
+  "Original FORKED Just-the-Docs Web site":
+    - "https://pdmosses.github.io/just-the-docs/"
 
 # Makes Aux links open in a new tab. Default is false
-aux_links_new_tab: false
+aux_links_new_tab: true
 
 # Sort order for navigation links
 # nav_sort: case_insensitive # default, equivalent to nil
@@ -102,7 +106,7 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/pmarsceill/just-the-docs" # the github URL for your repo
+gh_edit_repository: "https://github.com/GadgetAngel/just-the-docs/tree/dark-light-mode" # the github URL for your repo
 gh_edit_branch: "master" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
@@ -112,12 +116,29 @@ gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into t
 # To add a button to switch all pages to a different scheme:
 toggle_color_scheme: dark          # default: nil (no toggle button)
 # To display the toggle button only on one page:
-toggle_page_url: "/"               # default: nil (display on all pages)
+toggle_page_url: nil               # default: nil (display on all pages)
 # To toggle automatically when the system mode preference changes:
-# toggle_auto_mode: true             # default: nil (manual toggle)
+# To toggle automatically when the system mode preference changes - set toggle_auto_mode: true, 
+#    this will allow the user to force the default color mode for the site (i.e. the inital mode will be automatically
+#    switched to which ever mode the user has set in OS preferences).  For toggle_auto_mode to work
+#    as it should (meaning that the OS preference of light and dark mode has prescendance over the manual mode), so if you have
+#    a manual mode switch button present you can temporaially change the mode to the opposite but once you 
+#    go to another page on the site or refresh you browser window the mode will switch to the OS preference you
+#    set for your system. If you want to switch modes you need to do it on you OS preferences or your system.
+#    So the manual button is a temporary switch of mode. Once you are taken to a link off the site the mode will
+#    depend on that exteranl web site's setup.
+# To toggle the pages manually - set toggle_auto_mode: nil 
+#     With toggle_auto_mode set to nil then the OS preference is IGNORED and only the manual selection will 
+#     change the mode from dark to light.  the Voron Docs site will always be initially displayed in DARK mode.
+#     The User will have to manully switch to the color-blind friendly light mode.  Once the mode is switched it 
+#     will persist across web site pages and browser refreshs of the page until you change the mode back. 
+#     So the manual button is a persistanct switch of mode. Again, Once you are taken to a link off the site the
+#     mode will depend on that external web site's setup.
+ toggle_auto_mode: nil            # default: nil (manual toggle)
+
 # To set the button text for toggling and reverting:
-# toggle_text_1: "&rarr; &#x26ab;" # default: "&rarr; Dark Mode"
-# toggle_text_2: "&rarr; &#x26ab;" # default: "&rarr; Light Mode"
+ toggle_text_1: "-> Dark Mode" # default: "-> Dark Mode"
+ toggle_text_2: "-> Light Mode" # default: "-> Light Mode"
 
 # Callouts
 # 

@@ -55,9 +55,19 @@ layout: table_wrappers
     <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
       {% include nav/main.html page=page %}
     </nav>
+    
+    <!-- this allows the user to create a custom side footer -->
+    {% capture nav_footer_custom %}
+        {%- include nav_footer_custom.html -%}
+    {% endcapture %}
+    
+    {% if nav_footer_custom != "" %}
+        {{ nav_footer_custom }}
+    {% else %}
     <footer class="site-footer">
       This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
     </footer>
+    {% endif %}
   </div>
   <div class="main" id="top">
     <div id="main-header" class="main-header">

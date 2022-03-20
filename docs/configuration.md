@@ -158,16 +158,37 @@ New
 {: .label .label-green }
 
 ```yaml
+# Color scheme supports "dark", "light", and your custom schemes:
 # color_scheme: nil                # default: light
+
 # To add a button to switch all pages to a different scheme:
 toggle_color_scheme: dark          # default: nil (no toggle button)
+
 # To display the toggle button only on one page:
-toggle_page_url: "/"               # default: nil (display on all pages)
+toggle_page_url: nil               # default: nil (display on all pages)
+
 # To toggle automatically when the system mode preference changes:
-toggle_auto_mode: true             # default: nil (manual toggle)
+# To toggle automatically when the system mode preference changes - set toggle_auto_mode: true, 
+#    this will allow the user to force the default color mode for the site (i.e. the inital mode will be automatically
+#    switched to which ever mode the user has set in OS preferences).  For toggle_auto_mode to work
+#    as it should (meaning that the OS preference of light and dark mode has prescendance over the manual mode), so if you have
+#    a manual mode switch button present you can temporaially change the mode to the opposite but once you 
+#    go to another page on the site or refresh you browser window the mode will switch to the OS preference you
+#    set for your system. If you want to switch modes you need to do it on you OS preferences or your system.
+#    So the manual button is a temporary switch of mode. Once you are taken to a link off the site the mode will
+#    depend on that exteranl web site's setup.
+# To toggle the pages manually - set toggle_auto_mode: nil 
+#     With toggle_auto_mode set to nil then the OS preference is IGNORED and only the manual selection will 
+#     change the mode from dark to light.  the Voron Docs site will always be initially displayed in DARK mode.
+#     The User will have to manully switch to the color-blind friendly light mode.  Once the mode is switched it 
+#     will persist across web site pages and browser refreshs of the page until you change the mode back. 
+#     So the manual button is a persistanct switch of mode. Again, Once you are taken to a link off the site the
+#     mode will depend on that external web site's setup.
+ toggle_auto_mode: nil            # default: nil (manual toggle)
+
 # To set the button text for toggling and reverting:
-# toggle_text_1: "&rarr; &#x26ab;" # default: "&rarr; Dark Mode"
-# toggle_text_2: "&rarr; &#x26ab;" # default: "&rarr; Light Mode"
+ toggle_text_1: "-> Dark Mode" # default: "-> Dark Mode"
+ toggle_text_2: "-> Light Mode" # default: "-> Light Mode"
 ```
 
 ## Callouts
