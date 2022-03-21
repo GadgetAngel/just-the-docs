@@ -4,7 +4,7 @@ layout: table_wrappers
 
 <!DOCTYPE html>
 
-<html lang="{{ site.lang | default: 'en-US' }}">
+<html lang="{{ site.lang | default: 'en-US' }}" data-theme="{{ site.color_scheme }}">
 {% include head.html %}
 <body>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -173,7 +173,11 @@ layout: table_wrappers
     {% endif %}
   </div>
 
-  <script type="text/javascript" src="{{ '/assets/js/toggle_mode.js' | relative_url }}"></script>
+   <!--Ensure that the windows's localStorage of data-theme is still equal the html attribute data-theme-->
+   <script type="text/javascript" src="{{ '/assets/js/test-color-scheme.js' | relative_url }}"></script>
+   <script> testColorScheme();</script>
+
+   <script type="text/javascript" src="{{ '/assets/js/toggle_mode.js' | relative_url }}"></script>
 
 </body>
 </html>

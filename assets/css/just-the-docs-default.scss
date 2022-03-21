@@ -16,7 +16,15 @@
 
   {% assign toggle_color_scheme = site.toggle_color_scheme %}
 
-  {% include css/just-the-docs-toggle.scss.liquid color_scheme = color_scheme
-                                    toggle_color_scheme = toggle_color_scheme %}
+  {% if  color_scheme == "dark" and toggle_color_scheme == "light" %}
 
+    {% include css/just-the-docs-toggle.scss.liquid color_scheme = toggle_color_scheme
+                                    toggle_color_scheme = color_scheme %}
+
+  {% else %}
+
+    {% include css/just-the-docs-toggle.scss.liquid color_scheme = color_scheme
+                                      toggle_color_scheme = toggle_color_scheme %}
+
+  {% endif %}
 {% endif %}
