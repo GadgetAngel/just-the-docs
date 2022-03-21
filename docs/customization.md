@@ -86,7 +86,6 @@ toggle_page_url: nil               # default: nil (display on all pages)
 toggle_auto_mode: nil            # default: nil (manual toggle)
 
 # To set the button text for toggling and reverting:
-
 # toggle_text_1 is for light color scheme
 toggle_text_1: "-> Return to the Dark Side" # default: "-> Dark Mode"
 # toggle_text_2 is for dark color scheme
