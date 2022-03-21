@@ -118,7 +118,7 @@ gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into t
 
 # Color scheme supports "dark", "light", and your custom schemes:
 # color_scheme: nil                # default: light
-  color_scheme: dark                # default: light
+color_scheme: dark                # default: light
 # To add a button to switch all pages to a different scheme:
 toggle_color_scheme: light          # default: nil (no toggle button)
 # To display the toggle button only on one page:
