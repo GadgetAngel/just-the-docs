@@ -159,11 +159,15 @@ New
 
 ```yaml
 # Color scheme supports "dark", "light", and your custom schemes:
-# color_scheme: nil                # default: light
+# color_scheme will be the color_scheme that will be the initial color scheme if toggle_auto_mode is nil
+# If toggle_auto_mode is true, then the initial color scheme will be set by a window.matchMedia() and the 
+# users OS prference will be the initial color scheme.
 
+# Color scheme supports "dark", "light", and your custom schemes:
+# color_scheme: nil                # default: light
+color_scheme: light                # default: light
 # To add a button to switch all pages to a different scheme:
 toggle_color_scheme: dark          # default: nil (no toggle button)
-
 # To display the toggle button only on one page:
 toggle_page_url: nil               # default: nil (display on all pages)
 
@@ -184,11 +188,14 @@ toggle_page_url: nil               # default: nil (display on all pages)
 #     will persist across web site pages and browser refreshs of the page until you change the mode back. 
 #     So the manual button is a persistanct switch of mode. Again, Once you are taken to a link off the site the
 #     mode will depend on that external web site's setup.
- toggle_auto_mode: nil            # default: nil (manual toggle)
+toggle_auto_mode: nil            # default: nil (manual toggle)
 
 # To set the button text for toggling and reverting:
- toggle_text_1: "-> Dark Mode" # default: "-> Dark Mode"
- toggle_text_2: "-> Light Mode" # default: "-> Light Mode"
+
+# toggle_text_1 is for light color scheme
+toggle_text_1: "-> Return to the Dark Side" # default: "-> Dark Mode"
+# toggle_text_2 is for dark color scheme
+toggle_text_2: "-> Light Mode" # default: "-> Light Mode"
 ```
 
 ## Callouts

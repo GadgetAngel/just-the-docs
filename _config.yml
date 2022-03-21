@@ -118,9 +118,9 @@ gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into t
 
 # Color scheme supports "dark", "light", and your custom schemes:
 # color_scheme: nil                # default: light
-color_scheme: dark                # default: light
+color_scheme: light                # default: light
 # To add a button to switch all pages to a different scheme:
-toggle_color_scheme: light          # default: nil (no toggle button)
+toggle_color_scheme: dark          # default: nil (no toggle button)
 # To display the toggle button only on one page:
 toggle_page_url: nil               # default: nil (display on all pages)
 
@@ -141,7 +141,7 @@ toggle_page_url: nil               # default: nil (display on all pages)
 #     will persist across web site pages and browser refreshs of the page until you change the mode back. 
 #     So the manual button is a persistanct switch of mode. Again, Once you are taken to a link off the site the
 #     mode will depend on that external web site's setup.
-toggle_auto_mode: true            # default: nil (manual toggle)
+toggle_auto_mode: nil            # default: nil (manual toggle)
 
 # To set the button text for toggling and reverting:
 
