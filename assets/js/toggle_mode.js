@@ -17,7 +17,7 @@
     {% assign toggle_text_2 = "-> Light Mode" %}
   {% endif %}
 
-  const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');	
+  var userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');	
 
   if (theme === "dark") {
     document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_2 }}";

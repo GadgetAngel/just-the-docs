@@ -1,5 +1,5 @@
 function testLocalStorage() {
-    const storageAvailable = false;
+    var storageAvailable = false;
     // let's see if local storage is
     // really available to use
     // try to set and remove an item from local storage
@@ -20,4 +20,5 @@ function testLocalStorage() {
             }
 	}
     return storageAvailable;
+    }
 }
