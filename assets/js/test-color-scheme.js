@@ -1,7 +1,6 @@
 ---
 ---
 
-//debugger;
 if (theme !== theme_html) {
     // local storage and html data-theme attribute are out of sync.
     if (testLocalStorage()) {
