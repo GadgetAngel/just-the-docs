@@ -8,7 +8,7 @@ function testLocalStorage() {
 	if ("localStorage" in window) {
 		try {
 			window.localStorage.setItem('_tmptest', 'temp');
-            storageAvailable = true;
+                storageAvailable = true;
 			window.localStorage.removeItem('_tmptest');
 		} catch(e) {
             if (storageAvailable === true) {
