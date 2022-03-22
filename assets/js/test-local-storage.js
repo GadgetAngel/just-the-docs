@@ -15,7 +15,7 @@ function testLocalStorage() {
                 console.log("Exception, BUT setItem() WORKED!");
             } else {
                 console.log("Exception!");
-                return e instanceof DOMException && (
+                if e instanceof DOMException && (
                     // everything except Firefox
                     e.code === 22 ||
                     // Firefox
@@ -28,11 +28,11 @@ function testLocalStorage() {
                     // acknowledge QuotaExceededError only if there's something already stored
                     (storage && storage.length !== 0);
             }
+        } finally {
+            debugger;
+            console.log("Exception! emessage=["+e.message+"]");
+            return storageAvailable;
         }
 	}
-    debugger;
-    if (storageAvailable === false) {
-        console.log("Exception! e:["+e.name+"="+toString(e.code)+"]");
-    }
     return storageAvailable;
 }
