@@ -14,7 +14,7 @@ function testLocalStorage() {
             if (storageAvailable === true) {
                 console.log("Exception, BUT setItem() WORKED!");
             } else {
-                console.log("Exception!");
+                console.log("Exception! e:["+toString(e)+"]");
             }
         }
 	}

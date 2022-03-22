@@ -4,7 +4,7 @@
 if (theme !== theme_html) {
     // local storage and html data-theme attribute are out of sync.
     if (testLocalStorage()) {
-        window.localStorage.setItem('theme', theme_html);
+        localStorage.setItem('theme', theme_html);
         last_Savedmode = theme_html;
         if (theme === "dark") {
             document.documentElement.setAttribute('data-theme', 'dark');
@@ -24,7 +24,7 @@ if (theme !== theme_html) {
         // could have thrown exeception even tho window.localStorage.setItem
         // worked
         try {
-            window.localStorage.setItem('theme', theme_html);
+            localStorage.setItem('theme', theme_html);
             last_Savedmode = theme_html;
         } catch(e) {console.log("window.localStorage.setItem() threw an Exception!");}
     }
