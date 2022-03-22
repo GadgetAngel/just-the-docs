@@ -39,8 +39,13 @@ layout: table_wrappers
       </svg>
     </symbol>
   </svg>
-  
+
+  <script type="text/javascript" src="{{ '/assets/js/test-color-scheme.js' | relative_url }}"></script>
+  <script> testColorScheme();</script>
+
+  <!--
   <script type="text/javascript" src="{{ '/assets/js/toggle_init.js' | relative_url }}"></script>
+  -->
 
   <div class="side-bar">
     <div class="site-header">
@@ -49,18 +54,18 @@ layout: table_wrappers
         <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
       </a>
     </div>
-    
+
     {% include toggle.html %}
 
     <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
       {% include nav/main.html page=page %}
     </nav>
-    
+
     <!-- this allows the user to create a custom side footer -->
     {% capture nav_footer_custom %}
         {%- include nav_footer_custom.html -%}
     {% endcapture %}
-    
+
     {% if nav_footer_custom != "" %}
         {{ nav_footer_custom }}
     {% else %}
@@ -101,7 +106,7 @@ layout: table_wrappers
     </div>
     <div id="main-content-wrap" class="main-content-wrap">
 
-      {% include nav/crumbs.html 
+      {% include nav/crumbs.html
             nodes=nav_page_ancestors
             prev_page=nav_page_prev
             next_page=nav_page_next
@@ -173,11 +178,12 @@ layout: table_wrappers
     {% endif %}
   </div>
 
-   <!--Ensure that the windows's localStorage of data-theme is still equal the html attribute data-theme-->
-   <script type="text/javascript" src="{{ '/assets/js/test-color-scheme.js' | relative_url }}"></script>
-   <script> testColorScheme();</script>
+  <!--Ensure that the windows's localStorage of data-theme is still equal to the html attribute data-theme-->
+  <script> testColorScheme();</script>
 
-   <script type="text/javascript" src="{{ '/assets/js/toggle_mode.js' | relative_url }}"></script>
+  {% if site.toggle_color_scheme and site.toggle_color_scheme != "nil" %}
+    <script type="text/javascript" src="{{ '/assets/js/toggle_mode.js' | relative_url }}"></script>
+  {% endif %}
 
 </body>
 </html>

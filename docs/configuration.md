@@ -133,22 +133,61 @@ _note: `footer_content` is deprecated, but still supported. For a better experie
 # Color scheme supports "dark", "light", and your custom schemes:
 color_scheme: dark
 ```
-{% unless site.toggle_color_scheme and site.toggle_color_scheme != "nil" %}
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
 
-<script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+{% unless site.toggle_color_scheme and site.toggle_color_scheme != "nil"  %}
+  {% if site.color_scheme == "light" %}
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    jtd.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
-});
-</script>
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>{% endcapture %}
+
+  {% elsif site.color_scheme == "dark" %}
+
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">Return to the light side</button>{% endcapture %}
+
+  {% else %}
+
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>{% endcapture %}
+
+  {% endif %}
+
+  {{ button_html }}
+
+  <script>
+  const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+
+  jtd.addEvent(toggleDarkMode, 'click', function() {
+    if (jtd.getTheme() === 'dark') {
+      {% if site.color_scheme != "light" or site.color_scheme != "dark" %}
+        jtd.setTheme(document.documentElement.getAttribute('data-theme'));
+        toggleDarkMode.textContent = 'Preview dark color scheme';
+      {% else %}
+        jtd.setTheme('light');
+        toggleDarkMode.textContent = 'Preview dark color scheme';
+      {% endif %}
+    } else if (jtd.getTheme() === 'light') {
+      {% if site.color_scheme != "light" or site.color_scheme != "dark" %}
+        jtd.setTheme(document.documentElement.getAttribute('data-theme'));
+        toggleDarkMode.textContent = 'Preview dark color scheme';
+      {% else %}
+        jtd.setTheme('dark');
+        toggleDarkMode.textContent = 'Return to the light side';
+      {% endif %}
+    } else if (jtd.getTheme() === 'default') {
+        {% if site.color_scheme == "light" %}
+          td.setTheme('dark');
+          toggleDarkMode.textContent = 'Return to the light side';
+        {% elsif site.color_scheme == "dark" %}
+          jtd.setTheme('light');
+          toggleDarkMode.textContent = 'Preview dark color scheme';
+        {% elsif site.color_scheme != "light" or site.color_scheme != "dark" %}
+          jtd.setTheme('dark');
+          toggleDarkMode.textContent = 'Return to custom color scheme';
+        {% endif %}
+    } else {
+        jtd.setTheme('dark');
+        toggleDarkMode.textContent = 'Return to custom color scheme';
+    }
+  });
+  </script>
 {% endunless %}
 See [Customization]({{ site.baseurl }}{% link docs/customization.md %}) for more information.
 

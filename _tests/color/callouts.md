@@ -7,22 +7,61 @@ parent: Color
 
 The configuration of the callouts shown below is in [`_config_tests.yml`](https://github.com/pdmosses/just-the-docs/blob/callouts/_config_tests.yml).
 
-{% unless site.toggle_color_scheme and site.toggle_color_scheme != "nil"  %}
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
+{% unless site.toggle_color_scheme and site.toggle_color_scheme != "nil" %}
 
-<script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+  {% if site.color_scheme == "light" %}
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    jtd.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
-});
-</script>
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>{% endcapture %}
+
+  {% elsif site.color_scheme == "dark" %}
+
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview light color scheme</button>{% endcapture %}
+
+  {% else %}
+
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>{% endcapture %}
+
+  {% endif %}
+
+  {{ button_html }}
+
+  <script>
+  const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+
+  jtd.addEvent(toggleDarkMode, 'click', function() {
+    if (jtd.getTheme() === 'dark') {
+      {% if site.color_scheme != "light" or site.color_scheme != "dark" %}
+        jtd.setTheme(document.documentElement.getAttribute('data-theme'));
+        toggleDarkMode.textContent = 'Preview dark color scheme';
+      {% else %}
+        jtd.setTheme('light');
+        toggleDarkMode.textContent = 'Preview dark color scheme';
+      {% endif %}
+    } else if (jtd.getTheme() === 'light') {
+      {% if site.color_scheme != "light" or site.color_scheme != "dark" %}
+        jtd.setTheme(document.documentElement.getAttribute('data-theme'));
+        toggleDarkMode.textContent = 'Preview dark color scheme';
+      {% else %}
+        jtd.setTheme('dark');
+        toggleDarkMode.textContent = 'Return to the light side';
+      {% endif %}
+    } else if (jtd.getTheme() === 'default') {
+        {% if site.color_scheme == "light" %}
+          td.setTheme('dark');
+          toggleDarkMode.textContent = 'Return to the light side';
+        {% elsif site.color_scheme == "dark" %}
+          jtd.setTheme('light');
+          toggleDarkMode.textContent = 'Preview dark color scheme';
+        {% elsif site.color_scheme != "light" or site.color_scheme != "dark" %}
+          jtd.setTheme('dark');
+          toggleDarkMode.textContent = 'Return to custom color scheme';
+        {% endif %}
+    } else {
+        jtd.setTheme('dark');
+        toggleDarkMode.textContent = 'Return to custom color scheme';
+    }
+  });
+  </script>
 {% endunless %}
 
 ## Admonition

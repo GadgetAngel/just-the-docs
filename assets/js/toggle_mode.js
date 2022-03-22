@@ -1,6 +1,5 @@
 ---
 ---
-{% if site.toggle_color_scheme %}
 
   {% if site.toggle_auto_mode and site.toggle_auto_mode != "nil" %}
     {% assign toggle_auto_mode = site.toggle_auto_mode %}
@@ -83,9 +82,6 @@
   } else {
     setColorScheme('light');
   }
-  
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => setColorScheme(getPreferredColorScheme()));
-    
-  {% endif %}
 
-{% endif %}
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => setColorScheme(getPreferredColorScheme()));
+  {% endif %}

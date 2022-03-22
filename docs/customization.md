@@ -29,22 +29,62 @@ To enable a color scheme, set the `color_scheme` parameter in your site's `_conf
 # Color scheme supports "light" (default) and "dark"
 color_scheme: dark
 ```
-{% unless site.toggle_color_scheme and site.toggle_color_scheme != "nil"  %}
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
 
-<script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+{% unless site.toggle_color_scheme and site.toggle_color_scheme != "nil" %}
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    jtd.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
-});
-</script>
+  {% if site.color_scheme == "light" %}
+
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>{% endcapture %}
+
+  {% elsif site.color_scheme == "dark" %}
+
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview light color scheme</button>{% endcapture %}
+
+  {% else %}
+
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>{% endcapture %}
+
+  {% endif %}
+
+  {{ button_html }}
+
+  <script>
+  const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+
+  jtd.addEvent(toggleDarkMode, 'click', function() {
+    if (jtd.getTheme() === 'dark') {
+      {% if site.color_scheme != "light" or site.color_scheme != "dark" %}
+        jtd.setTheme(document.documentElement.getAttribute('data-theme'));
+        toggleDarkMode.textContent = 'Preview dark color scheme';
+      {% else %}
+        jtd.setTheme('light');
+        toggleDarkMode.textContent = 'Preview dark color scheme';
+      {% endif %}
+    } else if (jtd.getTheme() === 'light') {
+      {% if site.color_scheme != "light" or site.color_scheme != "dark" %}
+        jtd.setTheme(document.documentElement.getAttribute('data-theme'));
+        toggleDarkMode.textContent = 'Preview dark color scheme';
+      {% else %}
+        jtd.setTheme('dark');
+        toggleDarkMode.textContent = 'Return to the light side';
+      {% endif %}
+    } else if (jtd.getTheme() === 'default') {
+        {% if site.color_scheme == "light" %}
+          td.setTheme('dark');
+          toggleDarkMode.textContent = 'Return to the light side';
+        {% elsif site.color_scheme == "dark" %}
+          jtd.setTheme('light');
+          toggleDarkMode.textContent = 'Preview dark color scheme';
+        {% elsif site.color_scheme != "light" or site.color_scheme != "dark" %}
+          jtd.setTheme('dark');
+          toggleDarkMode.textContent = 'Return to custom color scheme';
+        {% endif %}
+    } else {
+        jtd.setTheme('dark');
+        toggleDarkMode.textContent = 'Return to custom color scheme';
+    }
+  });
+  </script>
 {% endunless %}
 
 ## Toggle between two schemes
