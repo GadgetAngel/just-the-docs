@@ -41,7 +41,6 @@ layout: table_wrappers
   </svg>
 
   <script type="text/javascript" src="{{ '/assets/js/test-color-scheme.js' | relative_url }}"></script>
-  <script> testColorScheme();</script>
 
   <!--
   <script type="text/javascript" src="{{ '/assets/js/toggle_init.js' | relative_url }}"></script>
@@ -179,7 +178,7 @@ layout: table_wrappers
   </div>
 
   <!--Ensure that the windows's localStorage of data-theme is still equal to the html attribute data-theme-->
-  <script> testColorScheme();</script>
+  <script type="text/javascript" src="{{ '/assets/js/test-color-scheme.js' | relative_url }}"></script>
 
   {% if site.toggle_color_scheme and site.toggle_color_scheme != "nil" %}
     <script type="text/javascript" src="{{ '/assets/js/toggle_mode.js' | relative_url }}"></script>
