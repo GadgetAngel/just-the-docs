@@ -137,15 +137,15 @@ color_scheme: dark
 {% unless site.toggle_color_scheme and site.toggle_color_scheme != "nil"  %}
   {% if site.color_scheme == "light" %}
 
-    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>{% endcapture %}
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">-> Dark Side</button>{% endcapture %}
 
   {% elsif site.color_scheme == "dark" %}
 
-    {% capture button_html %}<button class="btn js-toggle-dark-mode">Return to the light side</button>{% endcapture %}
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">-> Light Side</button>{% endcapture %}
 
   {% else %}
 
-    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>{% endcapture %}
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">-> Dark Side</button>{% endcapture %}
 
   {% endif %}
 
@@ -158,33 +158,33 @@ color_scheme: dark
     if (jtd.getTheme() === 'dark') {
       {% if site.color_scheme != "light" or site.color_scheme != "dark" %}
         jtd.setTheme(document.documentElement.getAttribute('data-theme'));
-        toggleDarkMode.textContent = 'Preview dark color scheme';
+        toggleDarkMode.textContent = '-> Dark Side';
       {% else %}
         jtd.setTheme('light');
-        toggleDarkMode.textContent = 'Preview dark color scheme';
+        toggleDarkMode.textContent = '-> Dark Side';
       {% endif %}
     } else if (jtd.getTheme() === 'light') {
       {% if site.color_scheme != "light" or site.color_scheme != "dark" %}
         jtd.setTheme(document.documentElement.getAttribute('data-theme'));
-        toggleDarkMode.textContent = 'Preview dark color scheme';
+        toggleDarkMode.textContent = '-> Dark Side';
       {% else %}
         jtd.setTheme('dark');
-        toggleDarkMode.textContent = 'Return to the light side';
+        toggleDarkMode.textContent = '-> Light Side';
       {% endif %}
     } else if (jtd.getTheme() === 'default') {
         {% if site.color_scheme == "light" %}
           td.setTheme('dark');
-          toggleDarkMode.textContent = 'Return to the light side';
+          toggleDarkMode.textContent = '-> Light Side';
         {% elsif site.color_scheme == "dark" %}
           jtd.setTheme('light');
-          toggleDarkMode.textContent = 'Preview dark color scheme';
+          toggleDarkMode.textContent = '-> Dark Side';
         {% elsif site.color_scheme != "light" or site.color_scheme != "dark" %}
           jtd.setTheme('dark');
-          toggleDarkMode.textContent = 'Return to custom color scheme';
+          toggleDarkMode.textContent = '-> Custom Color Side';
         {% endif %}
     } else {
         jtd.setTheme('dark');
-        toggleDarkMode.textContent = 'Return to custom color scheme';
+        toggleDarkMode.textContent = '-> Custom Color Side';
     }
   });
   </script>
@@ -232,7 +232,7 @@ toggle_auto_mode: nil            # default: nil (manual toggle)
 
 # To set the button text for toggling and reverting:
 # toggle_text_1 is for light color scheme
-toggle_text_1: "-> Return to the Dark Side" # default: "-> Dark Mode"
+toggle_text_1: "-> Dark Side" # default: "-> Dark Mode"
 # toggle_text_2 is for dark color scheme
 toggle_text_2: "-> Light Mode" # default: "-> Light Mode"
 ```

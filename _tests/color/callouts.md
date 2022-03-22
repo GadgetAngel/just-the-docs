@@ -7,19 +7,18 @@ parent: Color
 
 The configuration of the callouts shown below is in [`_config_tests.yml`](https://github.com/pdmosses/just-the-docs/blob/callouts/_config_tests.yml).
 
-{% unless site.toggle_color_scheme and site.toggle_color_scheme != "nil" %}
-
+{% unless site.toggle_color_scheme and site.toggle_color_scheme != "nil"  %}
   {% if site.color_scheme == "light" %}
 
-    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>{% endcapture %}
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">-> Dark Side</button>{% endcapture %}
 
   {% elsif site.color_scheme == "dark" %}
 
-    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview light color scheme</button>{% endcapture %}
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">-> Light Side</button>{% endcapture %}
 
   {% else %}
 
-    {% capture button_html %}<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>{% endcapture %}
+    {% capture button_html %}<button class="btn js-toggle-dark-mode">-> Dark Side</button>{% endcapture %}
 
   {% endif %}
 
@@ -32,33 +31,33 @@ The configuration of the callouts shown below is in [`_config_tests.yml`](https:
     if (jtd.getTheme() === 'dark') {
       {% if site.color_scheme != "light" or site.color_scheme != "dark" %}
         jtd.setTheme(document.documentElement.getAttribute('data-theme'));
-        toggleDarkMode.textContent = 'Preview dark color scheme';
+        toggleDarkMode.textContent = '-> Dark Side';
       {% else %}
         jtd.setTheme('light');
-        toggleDarkMode.textContent = 'Preview dark color scheme';
+        toggleDarkMode.textContent = '-> Dark Side';
       {% endif %}
     } else if (jtd.getTheme() === 'light') {
       {% if site.color_scheme != "light" or site.color_scheme != "dark" %}
         jtd.setTheme(document.documentElement.getAttribute('data-theme'));
-        toggleDarkMode.textContent = 'Preview dark color scheme';
+        toggleDarkMode.textContent = '-> Dark Side';
       {% else %}
         jtd.setTheme('dark');
-        toggleDarkMode.textContent = 'Return to the light side';
+        toggleDarkMode.textContent = '-> Light Side';
       {% endif %}
     } else if (jtd.getTheme() === 'default') {
         {% if site.color_scheme == "light" %}
           td.setTheme('dark');
-          toggleDarkMode.textContent = 'Return to the light side';
+          toggleDarkMode.textContent = '-> Light Side';
         {% elsif site.color_scheme == "dark" %}
           jtd.setTheme('light');
-          toggleDarkMode.textContent = 'Preview dark color scheme';
+          toggleDarkMode.textContent = '-> Dark Side';
         {% elsif site.color_scheme != "light" or site.color_scheme != "dark" %}
           jtd.setTheme('dark');
-          toggleDarkMode.textContent = 'Return to custom color scheme';
+          toggleDarkMode.textContent = '-> Custom Color Side';
         {% endif %}
     } else {
         jtd.setTheme('dark');
-        toggleDarkMode.textContent = 'Return to custom color scheme';
+        toggleDarkMode.textContent = '-> Custom Color Side';
     }
   });
   </script>
