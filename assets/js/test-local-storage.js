@@ -14,9 +14,25 @@ function testLocalStorage() {
             if (storageAvailable === true) {
                 console.log("Exception, BUT setItem() WORKED!");
             } else {
-                console.log("Exception! e:["+toString(e.name)+"="+toString(e.code)+"]");
+                console.log("Exception!");
+                return e instanceof DOMException && (
+                    // everything except Firefox
+                    e.code === 22 ||
+                    // Firefox
+                    e.code === 1014 ||
+                    // test name field too, because code might not be present
+                    // everything except Firefox
+                    e.name === 'QuotaExceededError' ||
+                    // Firefox
+                    e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+                    // acknowledge QuotaExceededError only if there's something already stored
+                    (storage && storage.length !== 0);
             }
         }
 	}
+    debugger;
+    if (storageAvailable === false) {
+        console.log("Exception! e:["+e.name+"="+toString(e.code)+"]");
+    }
     return storageAvailable;
 }
