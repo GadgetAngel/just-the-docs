@@ -13,14 +13,11 @@ function testLocalStorage() {
 		} catch(e) {
             if (storageAvailable === true) {
                 console.log("Exception, BUT setItem() WORKED!");
+                console.log("Error e.name:("+e.name+") e.message=["+e.message+"]");
             } else {
                 console.log("Exception!");
+                console.log("Error e.name:("+e.name+") e.message=["+e.message+"]");
             }
-        } finally {
-            debugger;
-            console.log("Exception! emessage=["+e.message+"]");
-            return storageAvailable;
-        }
 	}
     return storageAvailable;
 }
