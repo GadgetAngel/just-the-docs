@@ -454,9 +454,9 @@ jtd.getTheme = function() {
   return cssFileHref.substring(cssFileHref.lastIndexOf('-') + 1, cssFileHref.length - 4);
 }
 
-jtd.setTheme = function(theme) {
+jtd.setTheme = function(css_theme) {
   var cssFile = document.querySelector('[rel="stylesheet"]');
-  cssFile.setAttribute('href', '{{ "assets/css/just-the-docs-" | relative_url }}' + theme + '.css');
+  cssFile.setAttribute('href', '{{ "assets/css/just-the-docs-" | relative_url }}' + css_theme + '.css');
 }
 
 // Scroll site-nav to ensure the link to the current page is visible

@@ -24,14 +24,15 @@
 
   <script>
     function modeSwitcher() {
+      debugger;
       let currentMode = document.documentElement.getAttribute('data-theme');
       if (currentMode === "dark") {
         document.documentElement.setAttribute('data-theme', 'light');
-        window.localStorage.setItem('theme', 'light');
+        if (testLocalStorage()) {window.localStorage.setItem('theme', 'light');last_Savedmode = "light";}
         document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_1 }}";
       } else {
         document.documentElement.setAttribute('data-theme', 'dark');
-        window.localStorage.setItem('theme', 'dark');
+        if (testLocalStorage()) {window.localStorage.setItem('theme', 'dark');last_Savedmode = "dark";}
         document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_2 }}";
       }
     }

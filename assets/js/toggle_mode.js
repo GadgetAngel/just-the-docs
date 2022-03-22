@@ -21,23 +21,25 @@
 
   if (theme === "dark") {
     document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_2 }}";
+    if (testLocalStorage()) {window.localStorage.setItem('theme', 'dark');last_Savedmode = "dark";}
   } else if (theme === "light") {
     document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_1 }}";
+    if (testLocalStorage()) {window.localStorage.setItem('theme', 'light');last_Savedmode = 'light';}
   } else if (userPrefers === '\"dark\"') {
     document.documentElement.setAttribute('data-theme', 'dark');
-    window.localStorage.setItem('theme', 'dark');
+    if (testLocalStorage()) {window.localStorage.setItem('theme', 'dark');last_Savedmode = "dark";}
     document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_2 }}";
   } else if (userPrefers === '\"light\"'){
     document.documentElement.setAttribute('data-theme', 'light');
-    window.localStorage.setItem('theme', 'light');
+    if (testLocalStorage()) {window.localStorage.setItem('theme', 'light');last_Savedmode = 'light';}
     document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_1 }}";
   } else if (userPrefers === 'normal'){
     document.documentElement.setAttribute('data-theme', 'dark');
-    window.localStorage.setItem('theme', 'dark');
+    if (testLocalStorage()) {window.localStorage.setItem('theme', 'dark');last_Savedmode = "dark";}
     document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_2 }}";
   } else {
     document.documentElement.setAttribute('data-theme', 'dark');
-    window.localStorage.setItem('theme', 'dark');
+    if (testLocalStorage()) {window.localStorage.setItem('theme', 'dark');last_Savedmode = "dark";}
     document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_2 }}";
   }
 
@@ -49,19 +51,19 @@
         // Dark
         document.documentElement.setAttribute('data-theme', 'dark');
         document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_2 }}";
-        window.localStorage.setItem('theme', '');
+        if (testLocalStorage()) {window.localStorage.setItem('theme', '');}
         break;
       case 'light':
         // Light
         document.documentElement.setAttribute('data-theme', 'light');
         document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_1 }}";
-        window.localStorage.setItem('theme', '');
+        if (testLocalStorage()) {window.localStorage.setItem('theme', '');}
         break;
       default:
         // Default light
         document.documentElement.setAttribute('data-theme', 'light');
         document.getElementById("theme-toggle").innerHTML = "{{ toggle_text_1 }}";
-        window.localStorage.setItem('theme', '');
+        if (testLocalStorage()) {window.localStorage.setItem('theme', '');}
         break;
     }
   }

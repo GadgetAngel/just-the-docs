@@ -8,9 +8,15 @@ function testLocalStorage() {
 	if ("localStorage" in window) {
 		try {
 			window.localStorage.setItem('_tmptest', 'temp');
-			window.localStorage.removeItem('_tmptest');
             storageAvailable = true;
-		} catch(e) {console.log("Either window.localStorage.setItem() or window.localStorage.removeItem() threw an Exception!");}
+			window.localStorage.removeItem('_tmptest');
+		} catch(e) {
+            if (storageAvailable === true) {
+                console.log("Exception, BUT setItem() WORKED!");
+            } else {
+                console.log("Exception!");
+            }
+        }
 	}
     return storageAvailable;
 }

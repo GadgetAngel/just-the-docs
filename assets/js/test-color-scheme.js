@@ -2,36 +2,35 @@
 ---
 
 //debugger;
-var last_Savedmode;
 if (theme !== theme_html) {
     // local storage and html data-theme attribute are out of sync.
     if (testLocalStorage()) {
         window.localStorage.setItem('theme', theme_html);
+        last_Savedmode = theme_html;
         if (theme === "dark") {
             document.documentElement.setAttribute('data-theme', 'dark');
-            }
-            else
-            {
+            } else {
             document.documentElement.setAttribute('data-theme', 'light');
             }
 	} else {
         console.log("window.localStorage for data-theme attribute is NOT AVAILABLE!");
-        //set the data-theme in html header to match the last saved mode 
+        //set the data-theme in html header to match the last saved mode
         // apparently windows.localStorage is not always available.
         if (last_Savedmode !== undefined) {
             document.documentElement.setAttribute('data-theme', last_Savedmode);
         } else {
             document.documentElement.setAttribute('data-theme', '{{ site.color_scheme}}');
         }
-        // try to save anyways because the window.localStorage.removeItem 
+        // try to save anyways because the window.localStorage.removeItem
         // could have thrown exeception even tho window.localStorage.setItem
-        // works
+        // worked
         try {
             window.localStorage.setItem('theme', theme_html);
+            last_Savedmode = theme_html;
         } catch(e) {console.log("window.localStorage.setItem() threw an Exception!");}
     }
 } else {
-    last_Savedmode = theme;
+    //last_Savedmode = theme;
     if (theme === "dark") {
         document.documentElement.setAttribute('data-theme', 'dark');
     } else if (theme === "light") {
