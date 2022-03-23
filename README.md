@@ -16,13 +16,13 @@
 Add this line to your Jekyll site's Gemfile:
 
 ```ruby
-gem "just-the-docs"
+gem "just-the-docs-ga"
 ```
 
 And add this line to your Jekyll site's `_config.yml`:
 
 ```yaml
-theme: just-the-docs
+theme: just-the-docs-ga
 ```
 
 And then execute:
@@ -31,7 +31,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install just-the-docs
+    $ gem install just-the-docs-ga
 
 Alternatively, you can run it inside Docker while developing your site
 
