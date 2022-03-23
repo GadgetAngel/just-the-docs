@@ -7,6 +7,7 @@ layout: table_wrappers
 <html lang="{{ site.lang | default: 'en-US' }}" data-theme="{{ site.color_scheme }}">
 {% include head.html %}
 <body>
+      <!-- for toggle dark mode and light mode-->
   <script type="text/javascript" src="{{ '/assets/js/global-vars.js' | relative_url }}"></script>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="svg-link" viewBox="0 0 24 24">
@@ -45,10 +46,6 @@ layout: table_wrappers
   <!--Ensure that the windows's localStorage of data-theme is still equal to the html attribute data-theme-->
   <script type="text/javascript" src="{{ '/assets/js/test-color-scheme.js' | relative_url }}"></script>
 
-  <!--
-  <script type="text/javascript" src="{{ '/assets/js/toggle_init.js' | relative_url }}"></script>
-  -->
-
   <div class="side-bar">
     <div class="site-header">
       <a href="{{ '/' | relative_url }}" class="site-title lh-tight">{% include title.html %}</a>
@@ -57,6 +54,7 @@ layout: table_wrappers
       </a>
     </div>
 
+    <!-- for toggle dark mode and light mode-->
     {% include toggle.html %}
 
     <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
@@ -76,6 +74,7 @@ layout: table_wrappers
     </footer>
     {% endif %}
   </div>
+
   <div class="main" id="top">
     <div id="main-header" class="main-header">
       {% if site.search_enabled != false %}
